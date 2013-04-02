@@ -3,11 +3,11 @@
 //
 
 // Background color for the top bar
-$topbar-bg: #111 !default;
+$topbar-bg: #f3f3ef !default;
 
 // Height and margin
-$topbar-height: 45px !default;
-$topbar-margin-bottom: emCalc(30px) !default;
+$topbar-height: 40px !default;
+$topbar-margin-bottom: emCalc(0px) !default;
 
 // Control Input height for top bar
 $topbar-input-height: 2.45em !default;
@@ -17,26 +17,28 @@ $topbar-title-weight: bold !default;
 $topbar-title-font-size: emCalc(17px) !default;
 
 // Set the link colors and styles for top-level nav
-$topbar-link-color: #fff !default;
-$topbar-link-weight: bold !default;
-$topbar-link-font-size: emCalc(13px) !default;
+$topbar-link-color: #3a3c43 !default;
+$topbar-link-weight: normal !default;
+$topbar-link-font-size: emCalc(14px) !default;
+// Hover
+$topbar-link-color-hover: #267a9f;
 
 // Style the top bar dropdown elements
-$topbar-dropdown-bg: #333 !default;
-$topbar-dropdown-link-color: #fff !default;
+$topbar-dropdown-bg: #f3f3ef !default;
+$topbar-dropdown-link-color: #3a3c43 !default;
 $topbar-dropdown-toggle-size: 5px !default;
-$topbar-dropdown-toggle-color: #fff !default;
+$topbar-dropdown-toggle-color: #3a3c43 !default;
 $topbar-dropdown-toggle-alpha: 0.5 !default;
 $dropdown-label-color: #555 !default;
 
 // Top menu icon styles
 $topbar-menu-link-transform: uppercase !default;
-$topbar-menu-link-font-size: emCalc(13px) !default;
+$topbar-menu-link-font-size: emCalc(14px) !default;
 $topbar-menu-link-weight: bold !default;
-$topbar-menu-link-color: #fff !default;
-$topbar-menu-icon-color: #fff !default;
-$topbar-menu-link-color-toggled: #888 !default;
-$topbar-menu-icon-color-toggled: #888 !default;
+$topbar-menu-link-color: #3a3c43 !default;
+$topbar-menu-icon-color: #3a3c43 !default;
+$topbar-menu-link-color-toggled: #267A9F !default;
+$topbar-menu-icon-color-toggled: #267A9F !default;
 
 // Transitions and breakpoint styles
 $topbar-transition-speed: 300ms !default;
@@ -216,7 +218,7 @@ $topbar-media-query: "only screen and (min-width:"#{$topbar-breakpoint}")" !defa
       font-weight: $topbar-link-weight;
       background: $topbar-dropdown-bg;
 
-      &:hover { background: darken($topbar-dropdown-bg, 3%); }
+      &:hover {color: $topbar-link-color-hover;}
 
 
       &.button {
@@ -248,7 +250,10 @@ $topbar-media-query: "only screen and (min-width:"#{$topbar-breakpoint}")" !defa
     }
 
     // Apply the active link color when it has that class
-    &.active a { background: darken($topbar-dropdown-bg, 3%); }
+    &.active a {
+      background: url(../img/nav_border_bg_act.jpg) left top repeat-x;
+      color: $topbar-link-color-hover;
+    }
   }
 
   // Add some extra padding for list items contains buttons
@@ -358,13 +363,15 @@ $topbar-media-query: "only screen and (min-width:"#{$topbar-breakpoint}")" !defa
 
     li {
       a:not(.button) {
-        padding: 0 $topbar-height / 3;
+        padding: 0 $topbar-height / 4;
         line-height: $topbar-height;
         background: $topbar-bg;
-        &:hover { background: darken($topbar-dropdown-bg, 30%); }
+        &:hover { color: $topbar-link-color-hover }
       }
     }
-
+    li:last-child {
+      a:not(.button) {padding-right: 0}
+    }
     .has-dropdown {
       & > a {
         padding-#{$default-opposite}: $topbar-dropdown-toggle-size * 7 !important;

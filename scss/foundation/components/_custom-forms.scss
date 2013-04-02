@@ -9,24 +9,24 @@ $custom-form-bg-disabled:               #ddd !default;
 $custom-form-check-color:               #222 !default;
 
 // We use these to style the custom select form element.
-$custom-select-bg:                      #fff !default;
+$custom-select-bg:                      #141517 !default;
 $custom-select-fade-to-color:           #f3f3f3 !default;
 $custom-select-border-color:            #ddd !default;
-$custom-select-triangle-color:          #aaa !default;
-$custom-select-triangle-color-open:     #222 !default;
-$custom-select-height:                  emCalc(13px) + ($form-spacing * 1.5) !default;
+$custom-select-triangle-color:          #666666 !default;
+$custom-select-triangle-color-open:     #7b7b7b !default;
+$custom-select-height:                  emCalc(15px) + ($form-spacing * 1.5) !default;
 $custom-select-margin-bottom:           emCalc(20px) !default;
 $custom-select-font-color-selected:     #141414 !default;
 $custom-select-disabled-color:          #888 !default;
 
 // We use these to control the style of the custom select dropdown element.
 $custom-dropdown-height:                200px !default;
-$custom-dropdown-bg:                    #fff !default;
-$custom-dropdown-border-color:          darken(#fff, 20%) !default;
+$custom-dropdown-bg:                    #000 !default;
+$custom-dropdown-border-color:          #000 !default;
 $custom-dropdown-border-width:          1px !default;
 $custom-dropdown-border-style:          solid !default;
-$custom-dropdown-font-color:            #555 !default;
-$custom-dropdown-font-size:             emCalc(14px) !default;
+$custom-dropdown-font-color:            #fff !default;
+$custom-dropdown-font-size:             emCalc(11px) !default;
 $custom-dropdown-color-selected:        #eeeeee !default;
 $custom-dropdown-font-color-selected:   #000 !default;
 $custom-dropdown-shadow:                0 2px 2px 0px rgba(0,0,0,0.1) !default;
@@ -102,23 +102,21 @@ $custom-dropdown-width-large:           434px !default;
   /* Custom Select Options and Dropdowns */
   form.custom {
     .custom.dropdown {
+      border: 1px solid #000;
       display: block;
       position: relative;
       top: 0;
       height: $custom-select-height;
-      margin-bottom: $custom-select-margin-bottom;
+
       margin-top: 0px;
       padding: 0px;
       width: 100%;
       background: $custom-dropdown-bg;
-      background: -moz-linear-gradient(top, $custom-dropdown-bg 0%, $custom-select-fade-to-color 100%);
-      background: -webkit-linear-gradient(top, $custom-dropdown-bg 0%,$custom-select-fade-to-color 100%);
-      background: linear-gradient(to bottom, $custom-dropdown-bg 0%,$custom-select-fade-to-color 100%);
       -webkit-box-shadow: none;
       box-shadow: none;
-      font-size: emCalc(14px);
+      font-size: emCalc(11px);
       vertical-align: top;
-  
+
       ul {
         overflow-y: auto;
         max-height: $custom-dropdown-height;
@@ -128,14 +126,14 @@ $custom-dropdown-width-large:           434px !default;
         cursor:default;
         white-space: nowrap;
         line-height: $custom-select-height - emCalc(1px);
-        color: $input-font-color;
+        color: $custom-dropdown-font-color;
         text-decoration: none;
         overflow: hidden;
         display: block;
-        margin-left: $form-spacing / 2;
+        margin-left: emCalc(13px);
         margin-right: $custom-select-height;
       }
-  
+
       .selector {
         cursor:default;
         position: absolute;
@@ -147,17 +145,17 @@ $custom-dropdown-width-large:           434px !default;
         &:after {
           content: "";
           display: block;
-          @include css-triangle(5px, $custom-select-triangle-color, top);
+          @include css-triangle(3px, $custom-select-triangle-color, top);
           position: absolute;
-          left: ($form-spacing * 2.5) / 2 - emCalc(5px);
+          left: ($form-spacing * 2.5) / 2 - emCalc(3px);
           top: 50%;
-          margin-top: -3px;
+          margin-top: -2px;
         }
       }
   
       &:hover, &.open {
         a.selector {
-          &:after { @include css-triangle(5px, $custom-select-triangle-color-open, top); }
+          &:after { @include css-triangle(3px, $custom-select-triangle-color-open, top); }
         }
       }
   
@@ -174,6 +172,7 @@ $custom-dropdown-width-large:           434px !default;
         display: block;
         z-index: 10;
         min-width:100%;
+        left: -1px;
         @include box-sizing(content-box);
       }
   
